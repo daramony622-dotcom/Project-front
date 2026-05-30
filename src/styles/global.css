@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+	/* Complete and fix line 3 */
+	--font-sans: "Plus Jakarta Sans", sans-serif;
+
+	/* Your existing heading setup */
+	--font-heading: "Montserrat", sans-serif;
+
+	/* Your existing brand colors */
+	--color-brand-primary: #3b82f6;
+	--color-brand-dark: #0f121a;
+
+	--breakpoint-3xl: 1920px;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 80px;
+}
+/* Smooth scroll animations */
+.reveal-on-scroll {
+	opacity: 0.8;
+	transform: translateY(40px);
+	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: opacity, transform;
+}
+
+.reveal-on-scroll.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+	.reveal-on-scroll {
+		transform: translateY(30px);
+		transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.reveal-on-scroll.visible {
+		transform: translateY(0);
+	}
+}
+
+/* Fade in animations */
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0.7;
+		transform: scaleY(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scaleY(1);
+	}
+}
+
+button,
+a,
+.cursor-pointer {
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+button:hover,
+a:hover {
+	transform: translateY(-2px);
+}
+
+/* Responsive optimizations */
+@media (max-width: 1024px) {
+	.reveal-on-scroll {
+		transition-duration: 0.6s;
+	}
+
+	.animate-fadeInUp,
+	.animate-fadeInDown,
+	.animate-fadeInLeft,
+	.animate-fadeInRight,
+	.animate-slideIn {
+		animation-duration: 0.6s;
+	}
+}
+
+@media (max-width: 640px) {
+	html {
+		scroll-padding-top: 65px;
+	}
+
+	.reveal-on-scroll {
+		transform: translateY(20px);
+		transition-duration: 1s;
+	}
+
+	.animate-fadeInUp,
+	.animate-fadeInDown,
+	.animate-fadeInLeft,
+	.animate-fadeInRight,
+	.animate-slideIn {
+		animation-duration: 0.4s;
+	}
+}
+
+/* ===== DARK MODE STYLES ===== */
+html.dark {
+	@apply bg-slate-900 text-slate-50;
+	color-scheme: dark;
+}
+
+html.dark body {
+	@apply bg-slate-900 text-slate-100;
+}
+
+/* Dark mode main backgrounds */
+html.dark .bg-white {
+	@apply bg-slate-800;
+}
+
+html.dark .bg-slate-50 {
+	@apply bg-slate-800;
+}
+
+html.dark .bg-slate-100 {
+	@apply bg-slate-800;
+}
+
+html.dark .bg-gray-50,
+html.dark .bg-gray-100 {
+	@apply bg-slate-800;
+}
+
+html.dark .bg-slate-200 {
+	@apply bg-slate-700;
+}
+
+html.dark .bg-slate-300 {
+	@apply bg-slate-700;
+}
+
+/* Dark mode button and accent backgrounds */
+html.dark .bg-red-600 {
+	@apply bg-red-600;
+}
+
+html.dark .bg-red-700 {
+	@apply bg-red-600;
+}
+
+html.dark .bg-green-600 {
+	@apply bg-green-600;
+}
+
+html.dark .bg-green-700 {
+	@apply bg-green-600;
+}
+
+html.dark .bg-cyan-600 {
+	@apply bg-cyan-500;
+}
+
+html.dark .bg-cyan-700 {
+	@apply bg-cyan-500;
+}
+
+html.dark .bg-blue-600 {
+	@apply bg-blue-500;
+}
+
+html.dark .bg-blue-700 {
+	@apply bg-blue-500;
+}
+
+/* Dark mode text colors - better contrast */
+html.dark .text-slate-900,
+html.dark .text-gray-900 {
+	@apply text-slate-50;
+}
+
+html.dark .text-slate-800,
+html.dark .text-gray-800 {
+	@apply text-slate-100;
+}
+
+html.dark .text-slate-700,
+html.dark .text-gray-700 {
+	@apply text-slate-200;
+}
+
+html.dark .text-slate-600,
+html.dark .text-gray-600 {
+	@apply text-slate-300;
+}
+
+html.dark .text-gray-500 {
+	@apply text-slate-400;
+}
+
+html.dark .text-gray-400 {
+	@apply text-slate-300;
+}
+
+html.dark .text-gray-300 {
+	@apply text-slate-200;
+}
+
+/* Dark mode headings - make them crisp and clear */
+html.dark h1,
+html.dark h2,
+html.dark h3,
+html.dark h4,
+html.dark h5,
+html.dark h6 {
+	@apply text-slate-50;
+}
+
+/* Dark mode paragraph text */
+html.dark p {
+	@apply text-slate-200;
+}
+
+/* Dark mode card text */
+html.dark .text-justify {
+	@apply text-slate-200;
+}
+
+/* Light text backgrounds should become dark in dark mode */
+html.dark .from-gray-50,
+html.dark .to-gray-100 {
+	@apply from-slate-800 to-slate-700;
+}
+
+html.dark .from-gray-100,
+html.dark .to-gray-100 {
+	@apply from-slate-800 to-slate-700;
+}
+
+/* Dark mode borders */
+html.dark .border-gray-300,
+html.dark .border-slate-300,
+html.dark .border-gray-200 {
+	@apply border-slate-600;
+}
+
+html.dark .border-gray-100 {
+	@apply border-slate-700;
+}
+
+html.dark .divide-slate-100,
+html.dark .divide-gray-200 {
+	@apply divide-slate-700;
+}
+
+html.dark .divide-slate-200 {
+	@apply divide-slate-700;
+}
+
+/* Dark mode form elements */
+html.dark input,
+html.dark textarea,
+html.dark select {
+	@apply bg-slate-800 text-slate-100 border border-slate-600;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+	@apply text-slate-500;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+	@apply border-cyan-500 ring-cyan-500/20;
+}
+
+/* Dark mode buttons and interactive elements */
+html.dark .bg-slate-600 {
+	@apply bg-slate-700;
+}
+
+html.dark .bg-slate-700 {
+	@apply bg-slate-700;
+}
+
+html.dark button {
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Dark mode hover states */
+html.dark .hover\:bg-slate-50:hover {
+	@apply bg-slate-700;
+}
+
+html.dark .hover\:bg-slate-300:hover {
+	@apply bg-slate-700;
+}
+
+html.dark .hover\:bg-slate-600:hover {
+	@apply bg-slate-600;
+}
+
+html.dark .hover\:bg-slate-500:hover {
+	@apply bg-slate-600;
+}
+
+html.dark .hover\:bg-slate-400:hover {
+	@apply bg-slate-600;
+}
+
+html.dark .hover\:text-slate-900:hover {
+	@apply text-slate-50;
+}
+
+html.dark .hover\:text-slate-700:hover {
+	@apply text-slate-100;
+}
+
+html.dark .hover\:bg-cyan-500:hover {
+	@apply bg-cyan-400;
+}
+
+html.dark .hover\:bg-cyan-600:hover {
+	@apply bg-cyan-500;
+}
+
+html.dark .hover\:bg-red-700:hover {
+	@apply bg-red-600;
+}
+
+html.dark .hover\:bg-green-500:hover {
+	@apply bg-green-500;
+}
+
+html.dark .hover\:bg-blue-500:hover {
+	@apply bg-blue-400;
+}
+
+/* Dark mode shadows - enhanced visibility */
+html.dark .shadow-lg,
+html.dark .shadow-md,
+html.dark .shadow-sm {
+	@apply shadow-2xl shadow-black/40;
+}
+
+html.dark .shadow-xl {
+	@apply shadow-2xl shadow-black/50;
+}
+
+/* Dark mode navbar styling */
+html.dark .from-slate-700 {
+	@apply from-slate-700;
+}
+
+html.dark .to-slate-500 {
+	@apply to-slate-600;
+}
+
+html.dark .text-white {
+	@apply text-slate-50;
+}
+
+/* Ensure buttons in dark mode have proper text */
+html.dark .text-slate-900 {
+	@apply text-slate-50;
+}
+
+html.dark .text-gray-900 {
+	@apply text-slate-50;
+}
+
+/* Dark mode links and accents */
+html.dark a {
+	transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html.dark .hover\:text-cyan-300:hover {
+	@apply text-cyan-300;
+}
+
+html.dark .text-cyan-600 {
+	@apply text-cyan-400;
+}
+
+html.dark .text-cyan-500 {
+	@apply text-cyan-400;
+}
+
+/* Dark mode scroll */
+html.dark ::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+	@apply bg-slate-800;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+	@apply bg-slate-600 rounded hover:bg-slate-500;
+}
+
+/* Smooth color transitions */
+html.dark,
+html.dark body,
+html.dark * {
+	transition:
+		background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		border-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== DARK MODE - CONTENT VISIBILITY IMPROVEMENTS ===== */
+
+/* Make sure all text is readable in dark mode */
+html.dark {
+	/* Ensure proper line height and text rendering */
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Section and container backgrounds */
+html.dark [class*="bg-slate-50"],
+html.dark [class*="bg-gray-50"] {
+	@apply bg-slate-800;
+}
+
+html.dark [class*="bg-white"] {
+	@apply bg-slate-800;
+}
+
+/* Improve content section visibility */
+html.dark section {
+	@apply bg-slate-900;
+}
+
+/* Make text stand out more in cards */
+html.dark .rounded-xl,
+html.dark .rounded-3xl {
+	@apply bg-slate-800;
+}
+
+/* Heading text in cards - extra clarity */
+html.dark [class*="rounded-xl"] h1,
+html.dark [class*="rounded-xl"] h2,
+html.dark [class*="rounded-xl"] h3,
+html.dark [class*="rounded-3xl"] h1,
+html.dark [class*="rounded-3xl"] h2,
+html.dark [class*="rounded-3xl"] h3 {
+	@apply text-slate-50;
+}
+
+/* Body text in cards - good contrast */
+html.dark [class*="rounded-xl"] p,
+html.dark [class*="rounded-3xl"] p {
+	@apply text-slate-200;
+}
+
+/* Ensure links are visible */
+html.dark a {
+	@apply text-cyan-400;
+}
+
+html.dark a:hover {
+	@apply text-cyan-300;
+}
