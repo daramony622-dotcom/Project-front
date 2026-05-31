@@ -67,16 +67,16 @@ const Navbar = () => {
 	}, [mobileOpen]);
 
 	const mobileCircleItems = [
-		{ to: "/jeans", label: "Jeans", x: 38, y: 18 },
-		{ to: "/register", label: "Register", x: 63, y: 22 },
-		{ to: "/hoodies", label: "Hoodies", x: 22, y: 35 },
-		{ to: "/cart", label: "Cart", x: 78, y: 35 },
-		{ to: "/shoes", label: "Shoes", x: 15, y: 50 },
-		{ to: "/", label: "Home", x: 85, y: 50 },
-		{ to: "/shirt", label: "T-Shirt", x: 22, y: 66 },
-		{ to: "/about", label: "About", x: 78, y: 66 },
-		{ to: "/contact", label: "Contact", x: 38, y: 80 },
-		{ to: "/menu", label: "Menu", x: 63, y: 80 },
+		{ to: "/jeans", label: "Jeans", x: 36, y: 16 },
+		{ to: "/register", label: "Register", x: 64, y: 18 },
+		{ to: "/hoodies", label: "Hoodies", x: 23, y: 34 },
+		{ to: "/cart", label: "Cart", x: 77, y: 34 },
+		{ to: "/shoes", label: "Shoes", x: 17, y: 50 },
+		{ to: "/", label: "Home", x: 83, y: 50 },
+		{ to: "/shirt", label: "T-Shirt", x: 25, y: 66 },
+		{ to: "/about", label: "About", x: 75, y: 66 },
+		{ to: "/contact", label: "Contact", x: 38, y: 81 },
+		{ to: "/menu", label: "Menu", x: 62, y: 81 },
 	];
 
 	return (
@@ -313,9 +313,9 @@ const Navbar = () => {
 					className="absolute inset-0 bg-black/45 backdrop-blur-[3px]"
 					onClick={closeMobile}
 				/>
-				<div className="absolute inset-0 flex items-center justify-center px-4 pt-24 pb-8">
+				<div className="absolute inset-0 flex items-center justify-center px-3 pt-24 pb-8 sm:px-4">
 					<div
-						className={`relative h-[84vw] w-[84vw] min-h-[290px] min-w-[290px] max-h-96 max-w-[360px] rounded-full bg-slate-50/98 shadow-[0_28px_55px_rgba(15,23,42,0.35)] transition-all duration-300 ${
+						className={`relative h-[92vw] w-[92vw] min-h-[320px] min-w-[320px] max-h-[390px] max-w-[390px] rounded-full bg-slate-50/98 shadow-[0_28px_55px_rgba(15,23,42,0.35)] transition-all duration-300 sm:h-[84vw] sm:w-[84vw] ${
 							mobileOpen ? "scale-100" : "scale-90"
 						}`}
 						onClick={(event) => event.stopPropagation()}>
@@ -360,7 +360,7 @@ const Navbar = () => {
 									onClick={closeMobile}
 									style={style}
 									className={({ isActive }) =>
-										`absolute z-20 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-[10px] px-3.5 py-2 text-[0.92rem] font-semibold whitespace-nowrap shadow-sm transition-all duration-200 ${
+										`absolute z-20 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-1.5 rounded-[10px] px-3 py-2 text-[0.86rem] font-semibold whitespace-nowrap shadow-sm transition-all duration-200 sm:px-3.5 sm:text-[0.92rem] ${
 											isActive
 												? "bg-cyan-500 text-white shadow-md scale-105"
 												: "bg-slate-200 text-slate-700 hover:bg-cyan-400 hover:text-white hover:scale-105"

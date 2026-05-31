@@ -30,7 +30,7 @@ const MenuPage = () => {
 								type="button"
 								key={product.menuId}
 								onClick={() => navigate(`/products/${product.menuId}`)}
-								className="reveal-on-scroll overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md focus:outline-none">
+								className="reveal-on-scroll group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md focus:outline-none">
 								<div className="relative overflow-hidden bg-slate-200 h-56 sm:h-64">
 									<img
 										src={product.img}

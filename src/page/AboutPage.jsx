@@ -1,27 +1,98 @@
+import { PopularProducs } from "../data/popular";
+import { useNavigate } from "react-router-dom";
+import Clearban from "../assets/images/Clearban.png";
+
 const AboutPage = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className="max-w-7xl mx-auto min-h-screen mt-10 px-4">
-			{/* Improved Hero Banner Section */}
-			<div className="relative w-full h-[350px] md:h-[450px] rounded-2xl overflow-hidden shadow-xl shadow-slate-300 reveal-on-scroll mb-16">
-				{/* Background Image with Overlay */}
-				<img
-					className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-					src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200" // Switched to a reliable placeholder, replace with yours
-					alt="Store Banner"
-				/>
-				<div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 to-slate-900/40 flex flex-col justify-center px-6 md:px-12 text-white">
-					<div className="max-w-2xl">
-						<h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-4">
-							Welcome to <span className="text-blue-400">About</span> Products
-						</h2>
-						<p className="text-base md:text-xl text-slate-200 leading-relaxed">
-							Let you know about us and our products. We are committed to
-							providing high-quality products that meet your needs and exceed
-							your expectations.
-						</p>
+			<section className="reveal-on-scroll mb-12 overflow-hidden rounded-3xl bg-slate-100 shadow-xl shadow-slate-300/70">
+				<div className="relative h-[280px] w-full sm:h-[380px] lg:h-[470px]">
+					<img
+						src={Clearban}
+						alt="Clothing Collection"
+						className="h-full w-full object-cover object-center"
+					/>
+					<div className="absolute inset-0 bg-linear-to-r from-slate-950/70 via-slate-950/25 to-transparent" />
+					<div className="absolute inset-0 flex items-center px-6 text-white sm:px-10 lg:px-16">
+						<div className="max-w-xl">
+							<p className="mb-3 inline-flex rounded-full bg-white/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide backdrop-blur-sm sm:text-sm">
+								About Meng's Shop
+							</p>
+							<h1 className="text-3xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+								Clothing Collection
+							</h1>
+							<p className="mt-4 max-w-md text-sm leading-6 text-slate-100 sm:text-lg sm:leading-8">
+								Fresh outfits, soft textures, and everyday style in one shop.
+							</p>
+							<button
+								type="button"
+								onClick={() => navigate("/menu")}
+								className="mt-6 rounded-xl bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-cyan-950/20 transition hover:bg-cyan-400 sm:px-6 sm:py-3 sm:text-base">
+								Shop Clothing
+							</button>
+						</div>
 					</div>
 				</div>
-			</div>
+			</section>
+
+			<section className="mb-16">
+				<div className="mb-6 text-center reveal-on-scroll">
+					<h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">
+						Popular{" "}
+						<span className="inline-flex items-center justify-center rounded-lg bg-blue-50 p-1 text-blue-600">
+							Products
+						</span>
+					</h1>
+					<p className="mt-3 text-sm text-slate-700 sm:text-base">
+						Customer favorites from our hoodies, jackets, shirts, and shoes.
+					</p>
+				</div>
+
+				{PopularProducs.length === 0 ? (
+					<div className="rounded-3xl bg-white p-8 text-center text-slate-600 shadow-sm">
+						<p>No products are available right now. Please check back later.</p>
+					</div>
+				) : (
+					<div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+						{PopularProducs.map((ele) => (
+							<button
+								type="button"
+								key={ele.menuId}
+								onClick={() => navigate(`/products/${ele.menuId}`)}
+								className="reveal-on-scroll group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md focus:outline-none">
+								<div className="relative overflow-hidden bg-slate-200 h-56 sm:h-64">
+									<img
+										src={ele.img}
+										alt={ele.name}
+										className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+									/>
+								</div>
+								<div className="p-5">
+									<p className="text-xs uppercase tracking-wide text-slate-500">
+										{ele.category}
+									</p>
+									<h2 className="mt-3 text-lg font-semibold text-slate-900">
+										{ele.name}
+									</h2>
+									<p className="mt-2 text-sm leading-6 text-slate-600 line-clamp-2">
+										{ele.description}
+									</p>
+									<div className="mt-4 flex items-center justify-between">
+										<span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-emerald-700">
+											In Stock
+										</span>
+										<p className="text-lg font-bold text-slate-900">
+											${Number(ele.price).toFixed(2)}
+										</p>
+									</div>
+								</div>
+							</button>
+						))}
+					</div>
+				)}
+			</section>
 
 			{/* Cards Section */}
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-2 py-6">

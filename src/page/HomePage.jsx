@@ -21,10 +21,10 @@ const HomePage = () => {
 				<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 					<div className="mb-6 sm:mb-7">
 						<h2 className="text-2xl text-center sm:text-3xl font-bold text-slate-800">
-							Featured{" "}
+							Features{" "}
 							<span className="text-blue-600 m-1 p-1 rounded-lg bg-blue-50 items-center justify-center inline-flex">
 								Products
-							</span> 
+							</span>
 						</h2>
 						<p className="mt-1 text-center text-sm text-slate-700 sm:text-base">
 							Shop top picks with a layout that fits every screen.

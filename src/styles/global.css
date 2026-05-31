@@ -23,13 +23,18 @@ html {
 .reveal-on-scroll {
 	opacity: 0.8;
 	transform: translateY(40px);
-	transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-	will-change: opacity, transform;
+	filter: saturate(0.96);
+	transition:
+		opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	will-change: opacity, transform, filter;
 }
 
 .reveal-on-scroll.visible {
 	opacity: 1;
 	transform: translateY(0);
+	filter: none;
 }
 
 @media (max-width: 768px) {
@@ -154,6 +159,31 @@ html.dark body {
 	@apply bg-slate-900 text-slate-100;
 }
 
+html.dark .reveal-on-scroll {
+	opacity: 0.68;
+	filter: saturate(0.9) brightness(0.92);
+}
+
+html.dark .reveal-on-scroll.visible {
+	opacity: 1;
+	filter: saturate(1.04) brightness(1);
+}
+
+html.dark .group img.object-cover {
+	backface-visibility: hidden;
+	filter: saturate(0.92) brightness(0.94);
+	transform: translateZ(0) scale(1);
+	transition:
+		transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+		filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+	will-change: transform, filter;
+}
+
+html.dark .group:hover img.object-cover {
+	filter: saturate(1.08) brightness(1.04) contrast(1.03);
+	transform: translateZ(0) scale(1.06);
+}
+
 /* Dark mode main backgrounds */
 html.dark .bg-white {
 	@apply bg-slate-800;
@@ -165,6 +195,14 @@ html.dark .bg-slate-50 {
 
 html.dark .bg-slate-100 {
 	@apply bg-slate-800;
+}
+
+html.dark .bg-blue-50 {
+	@apply bg-blue-950/50;
+}
+
+html.dark .bg-emerald-100 {
+	@apply bg-emerald-950/60;
 }
 
 html.dark .bg-gray-50,
@@ -232,6 +270,14 @@ html.dark .text-gray-700 {
 html.dark .text-slate-600,
 html.dark .text-gray-600 {
 	@apply text-slate-300;
+}
+
+html.dark .text-blue-600 {
+	@apply text-blue-300;
+}
+
+html.dark .text-emerald-700 {
+	@apply text-emerald-300;
 }
 
 html.dark .text-gray-500 {
