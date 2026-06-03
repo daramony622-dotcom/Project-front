@@ -379,14 +379,28 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			{/* Scroll to Top Button - Mobile Responsive */}
+			{/* Mobile Floating Actions */}
 			{showScrollTop && !mobileOpen && (
-				<button
-					onClick={scrollToTop}
-					aria-label="Scroll to top"
-					className="fixed bottom-6 right-6 z-40 lg:hidden w-14 h-14 rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center hover:shadow-xl">
-					<FiArrowUp className="text-2xl" />
-				</button>
+				<div className="fixed bottom-6 right-6 z-40 flex items-center gap-3 lg:hidden">
+					<Link
+						to="/cart"
+						onClick={closeMobile}
+						aria-label="Open cart"
+						className="relative flex h-14 w-14 items-center justify-center rounded-full bg-green-600 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:bg-green-500 hover:shadow-xl active:scale-95">
+						<IoCart className="text-2xl" />
+						{totalQuantity > 0 && (
+							<span className="absolute -right-1 -top-1 inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-red-500 px-1.5 text-xs font-bold text-white">
+								{totalQuantity}
+							</span>
+						)}
+					</Link>
+					<button
+						onClick={scrollToTop}
+						aria-label="Scroll to top"
+						className="flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-r from-cyan-500 to-blue-500 text-white shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl active:scale-95">
+						<FiArrowUp className="text-2xl" />
+					</button>
+				</div>
 			)}
 		</nav>
 	);
