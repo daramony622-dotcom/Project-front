@@ -82,7 +82,6 @@ const Navbar = () => {
 	return (
 		<nav className="w-full bg-linear-to-r rounded-b-2xl from-slate-700 to-slate-500 shadow-xl sticky top-0 z-50">
 			<div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-2 md:px-6 md:py-4 sm:px-5">
-				{/* Logo Section */}
 				<div className="flex items-center gap-2 sm:gap-3">
 					<Link to="/" className="flex items-center gap-2 sm:gap-3">
 						<div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full bg-linear-to-r from-cyan-400 to-blue-500 p-0.5 shadow-md md:h-14 md:w-14 lg:h-16 lg:w-16">
@@ -98,9 +97,7 @@ const Navbar = () => {
 					</Link>
 				</div>
 
-				{/* --- DESKTOP NAVIGATION --- */}
 				<div className="hidden flex-1 items-center justify-center lg:flex">
-					{/* Products Dropdown */}
 					<div className="relative mx-2">
 						<div className="group">
 							<button className="inline-flex items-center rounded-lg bg-slate-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:bg-slate-300 hover:text-slate-900 md:px-5 md:py-2.5">
@@ -118,7 +115,6 @@ const Navbar = () => {
 								</svg>
 							</button>
 
-							{/* Dropdown Box */}
 							<div className="absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 transform-gpu opacity-0 scale-95 transition-all duration-150 group-hover:opacity-100 group-hover:scale-100 pointer-events-none group-hover:pointer-events-auto">
 								<div className="bg-white rounded-lg shadow-lg overflow-hidden mt-2">
 									<ul className="divide-y divide-slate-100">
@@ -164,7 +160,6 @@ const Navbar = () => {
 						</div>
 					</div>
 
-					{/* Regular Links */}
 					<ul className="flex flex-wrap items-center justify-center gap-2 md:gap-3 lg:gap-4">
 						<li>
 							<NavLink
@@ -221,13 +216,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 
-				{/* Desktop Action Buttons */}
 				<div className="hidden items-center justify-end gap-3 lg:flex">
 					{" "}
-					{/* Dark Mode Toggle */}
 					<button
 						onClick={toggleDarkMode}
-						className="rounded-lg bg-slate-600 px-4 py-2 text-white transition-all duration-300 hover:bg-slate-500 flex items-center gap-2"
+						className="dm-btn flex items-center gap-2"
 						aria-label="Toggle dark mode">
 						{isDark ? (
 							<MdLightMode className="text-xl" />
@@ -271,12 +264,10 @@ const Navbar = () => {
 					</Link>
 				</div>
 
-				{/* --- TABLET / MOBILE RESPONSIVE CIRCLE BUTTON --- */}
 				<div className="lg:hidden flex items-center gap-2 z-50">
-					{/* Dark Mode Toggle - Mobile */}
 					<button
 						onClick={toggleDarkMode}
-						className="w-12 h-12 flex items-center justify-center bg-slate-600 rounded-lg shadow-md transition-all duration-300 active:scale-90 hover:bg-slate-500"
+						className="dm-circle-btn"
 						aria-label="Toggle dark mode">
 						{isDark ? (
 							<MdLightMode className="text-white text-2xl" />
@@ -288,7 +279,6 @@ const Navbar = () => {
 						onClick={toggleMobile}
 						aria-label="Toggle menu"
 						className="w-12 h-12 flex flex-col items-center justify-center gap-1.5 bg-cyan-500 rounded-lg focus:outline-none shadow-md transition-all duration-300 active:scale-90 hover:bg-cyan-600">
-						{/* Animated Hamburger lines turning into an 'X' */}
 						<span
 							className={`h-0.5 w-5 bg-white rounded transition-transform duration-300 ease-in-out ${mobileOpen ? "rotate-45 translate-y-2" : ""}`}
 						/>
@@ -302,7 +292,6 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			{/* --- TABLET / MOBILE CENTERED CIRCLE MENU --- */}
 			<div
 				className={`fixed inset-0 z-40 lg:hidden transition-opacity duration-300 ${
 					mobileOpen
@@ -338,7 +327,7 @@ const Navbar = () => {
 							)}
 							<button
 								onClick={toggleDarkMode}
-								className="absolute -top-12 left-1/2 -translate-x-1/2 flex items-center gap-2 rounded-full bg-slate-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-slate-500">
+								className="absolute -top-12 left-1/2 -translate-x-1/2 dm-btn flex items-center gap-2 rounded-full px-5 py-2.5 font-semibold shadow-lg transition-all duration-200">
 								{isDark ? (
 									<MdLightMode className="text-lg" />
 								) : (
@@ -379,9 +368,10 @@ const Navbar = () => {
 				</div>
 			</div>
 
-			{/* Mobile Floating Actions */}
-			{showScrollTop && !mobileOpen && (
-				<div className="fixed bottom-6 right-6 z-40 flex items-center gap-3 lg:hidden">
+			{!mobileOpen && (
+				<div
+					className="fixed right-6 z-40 flex items-center gap-3 lg:hidden"
+					style={{ bottom: "calc(1.5rem + env(safe-area-inset-bottom))" }}>
 					<Link
 						to="/cart"
 						onClick={closeMobile}

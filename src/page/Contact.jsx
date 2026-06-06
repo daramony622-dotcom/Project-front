@@ -74,7 +74,6 @@ const Contact = () => {
 			</h2>
 			<div className="max-w-full min-h-screen flex justify-center items-center">
 				<div className="max-w-5xl w-full bg-white relative rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
-					{/* Column 1: Contact Information */}
 					<div className="md:col-span-5 bg-slate-700 p-8 text-white flex flex-col justify-between">
 						<div>
 							<div className="mb-8 flex flex-col items-center text-center">
